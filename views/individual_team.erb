@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Leaderboard</title>
+  </head>
+
+<h1><%= @team[0][:name] %> Stats</h1>
+
+<h2>Record: <%= @team[0][:wins] %> / <%= @team[0][:losses] %></h2>
+
+<ul>
+  <% @team[0][:opps].each do |opp| %>
+    <li><%= opp.keys[0] %> // Final: <%= opp.values[0][0][:own_score] %> - <%= opp.values[0][0][:opp_score] %> //
+      <%if opp.values[0][0][:own_score] > opp.values[0][0][:opp_score] %>
+        <%= "Won" %>
+        <% else %>
+        <%= "Lost" %>
+        <% end %>
+      </li>
+      <% end %>
+</ul>
+
+<h3><a href="/">Back Home</a></h3>

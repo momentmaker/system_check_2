@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Leagueboard</title>
+  </head>
+
+<h1>Game Stats</h1>
+
+<table>
+  <tr>
+    <th>Teams</th>
+    <th>Wins</th>
+    <th>Losses</th>
+  </tr>
+  <% @league.each do |team| %>
+  <tr>
+    <td><a href="/leaderboard/<%= team[:name] %>"><%= team[:name] %></td>
+    <td><%= team[:wins].to_s %></td>
+    <td><%= team[:losses].to_s %></td>
+  </tr>
+  <% end %>
+</table>
+
+<h3><a href="/leaderboard">View Leaderboard</a></h3>
